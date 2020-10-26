@@ -2,5 +2,7 @@
     "prettier.resolveGlobalModules": true,
     "prettier.singleQuote": true,
     "prettier.trailingComma": "all",
-    "prettier.useTabs": true
+    "prettier.useTabs": true,
+    "editor.formatOnSave": true,
+    "php.validate.run": "onType"
 }

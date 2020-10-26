@@ -22,17 +22,16 @@ export  function Helper(squares) {
     }
   }
 
-  let isDraw = true;
-  for (let i = 0; i < squares.length; i++) {
-    if (squares[i] === null) {
-      isDraw = false;
-    }
-  }
+  // let isDraw = true;
+  // for (let i = 0; i < squares.length; i++) {
+  //   if (squares[i] === null) {
+  //     isDraw = false;
+  //   }
+  // }
 
   
     return {
     winner: null,
-    line: null,
-    isDraw: isDraw
+   
   };
 }

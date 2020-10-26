@@ -2,35 +2,27 @@ import React, { useState } from "react"
 import './compontCss/game.css';
 import Sqaure from './suqaure';
 import {Helper} from './help';
-
+var numplay1 = 0;
+var numplay2 = 0;
+var play1 =0;
+var play2=0;
 function TicTacToe() {
   const [squares, setSquare] = useState(Array(9).fill(null))
   const [isXNext, setXNext] = useState(true);
-  // const [stepNumber, setStepNumber] = useState(0);
   const winnerLogic = Helper(squares)
-  const winner = winnerLogic.winner;
-  const winnerIs = winnerLogic.line;
+  
+ 
 
-// var num1 = 0
-//   if (winner) {
-//     num1++ 
-//   } else if (winnerLogic.isDraw) {
-//     console.log(winnerLogic.isDraw)
-//   }
-let numplay1 = 0;
-let numplay2 = 0;
-// let status; 
-if (winner) {
-  // status = "Hurray the winner is " + winner;
-  console.log(winner)
-} else if (winnerLogic.isDraw) {
-  // status = "It's a Draw";
-}
-if(winner==="X"){
-  numplay1++;
+
+
+  if (winnerLogic.winner === "X") {
+    numplay1++
+    play1 = numplay1 -1;
+  
   }
-  if (winner === "O") {
-  numplay2++
+  else if (winnerLogic.winner === "O") {
+    numplay2++
+    play2 = numplay1 -1;
 }
  
  
@@ -38,11 +30,15 @@ if(winner==="X"){
     squares.fill(null);
     const nextSquare = squares.slice();
     console.log(nextSquare)
-       setSquare(nextSquare);
+    setSquare(nextSquare);
+    play1 = 0
+    play2 = 0 
   }
 
   const playAgine = () => {
-    console.log(squares)
+    squares.fill(null);
+    const nextSquare = squares.slice();
+    setSquare(nextSquare);
   }
   
   function Xo(i) {     
@@ -59,7 +55,7 @@ if(winner==="X"){
         }}
         
         value={squares[i]}
-        playwinner={winnerIs && winnerIs.includes(i)}
+        // playwinner={winnerIs && winnerIs.includes(i)}
       
       />
      
@@ -73,8 +69,8 @@ if(winner==="X"){
               <button className='player'>Player Name1</button>
               <button className='player'>Player Name2</button>
               <br />
-              <button className='res'>{numplay1}</button>
-        <button className='res'>{numplay2}</button>
+              <button className='res'>{play1}</button>
+        <button className='res'>{play2}</button>
       </div >
      
       {/* <div className='xo'> */}
